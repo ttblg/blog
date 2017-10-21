@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>日历</title>
+<link rel="stylesheet/less" type="text/css" href="../src/less/index.less" />
+
+<script src="js/less.min.js" type="text/javascript"></script>
+
+<script src="../lib/zepto.min.js"></script>
+<script src="../dist/js/kui.js"></script>
+
+
+
+<script src="../src/plus/Calendar/calendar.js"></script>
+<style>
+table td:nth-child(3){word-wrap:break-word; word-break: break-all;}
+</style>
+
+</head>
+
+<body>
+<div class="kui-page">
+	<div class="kui-header">
+		<div class="pull-left icon-left app-back" onClick="history.back()">返回</div>
+		<h1 class="kui-title">Calendar</h1>
+	</div>
+	<div class="kui-content">
+		<div class="kui-block-title">Picker</div>
+		<div class="kui-blocker">
+			<div class="kui-list kui-from kui-1px-tb">
+				<li class="kui-list-item">
+					<div class="kui-form-label">生日</div>
+					<div class="kui-form-input"><input id="bsday" type="text" placeholder="请输入生日" /></div>
+				</li>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+
+$("#bsday").calendar({
+    //value: ['2015-12-05'],
+	onChange:function(){
+		console.log('change')
+	},
+	onclose:function(){
+		console.log('onshow')
+	}
+})
+</script>
+</body>
+</html>

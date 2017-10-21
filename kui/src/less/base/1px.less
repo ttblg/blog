@@ -1,0 +1,41 @@
+/*
+1px解决方案及表格样式
+*pointer-events:none;解决无法点透问题
+*/
+
+.kui-table,.kui-table td,.kui-table th,
+[class*="kui-1px"]{position:relative;z-index:0;}
+
+.kui-table:after,.kui-table td:after,.kui-table th:after,
+[class*="kui-1px"]:after{
+	content:"";
+	width:200%;
+	height:200%;
+	position:absolute;
+	top:0;left:0;
+	border:0 solid rgba(0,0,0,0.19);
+	box-sizing:border-box;
+	pointer-events:none;
+	transform:scale(.5);
+	transform-origin:0 0;
+	-webkit-transform:scale(.5);
+	-webkit-transform-origin:0 0;
+}
+.kui-1px:after{border-width:1px;}
+.kui-1px-t:after{border-top-width:1px;}
+.kui-1px-b:after{border-bottom-width:1px;}
+.kui-1px-l:after{border-left-width:1px;}
+.kui-1px-r:after{border-right-width:1px;}
+.kui-1px-tb:after{border-top-width:1px;border-bottom-width:1px;}
+.kui-1px-lr:after{border-left-width:1px;border-right-width:1px;}
+.kui-1px-rand,.kui-1px-rand:after{.rand}
+
+.kui-table:after,
+.kui-1px-lt:after{border-top-width:1px;border-left-width:1px;}
+
+.kui-table td:after,.kui-table th:after,
+.kui-1px-rb:after{border-bottom-width:1px;border-right-width:1px;}
+
+/*表格*/
+.kui-table{border-collapse:collapse;}
+.kui-table-active tr:active,.kui-table th{background-color:#f4f4f4;}

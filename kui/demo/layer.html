@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Layer</title>
+<link rel="stylesheet/less" type="text/css" href="../src/less/index.less" />
+<script src="js/less.min.js" type="text/javascript"></script>
+
+<script src="../lib/zepto.min.js"></script>
+<script src="../src/js/fastClick.js"></script>
+<script src="../src/js/init.js"></script>
+<script src="../src/js/layer.js"></script>
+<script src="../src/js/zepto-adapter.js"></script>
+
+<script src="../lib/JRoll/jroll.js"></script>
+<script src="../src/plus/Scroller/scroller.js"></script>
+
+
+<!--<script src="../dist/plus/scroller.min.js"></script>-->
+<style>
+table td:nth-child(3){word-wrap:break-word; word-break: break-all;}
+</style>
+</head>
+
+<body ontouchstart>
+<div class="kui-page">
+	<div class="kui-header">
+		<div class="pull-left icon-left app-back" onClick="history.back()">返回</div>
+		<h1 class="kui-title">Layer</h1>
+	</div>
+	<div class="kui-content">
+		<div class="kui-block-title">弹层Demo</div>
+		<div class="kui-blocker Pd" style="padding-top:1px;margin-left:0;margin-right:0;">
+			<div class="kui-line-title"><span class="kui-line-txt">layer</span></div>
+			<div class="kui-btn-success" onClick="$.layer({content:'最简单的层',size:['200px','150px']})">简单版</div>
+			<div class="kui-btn-success" onClick="$.layer({head:'头部',content:'最简单的层',foot:'底部',size:['200px','150px']})">带头部底部</div>
+			<div class="kui-btn-success" onClick="$.layer({head:{title:'层标题',btn:[{text:'返回',icon:'icon-left'}]},content:'最简单的层',skin:'kui-layer-page',anim:'right'})">子页面</div>
+			<div class="kui-line-title"><span class="kui-line-txt">alert</span></div>
+			<div class="kui-btn-success" onClick="$.alert('这是对话框内容','这是标题',['取消','确定'])">带标题</div>
+			<div class="kui-btn-success" onClick="$.alert('这是对话框内容',['取消','确定'])">无标题</div>
+			<div class="kui-btn-success" onClick="$.alert('这是对话框内容')">单内容</div>
+			
+			<div class="kui-line-title"><span class="kui-line-txt">操作类</span></div>
+			<div class="kui-btn-success" onClick="$.actions([{text:'我要分享<small class=\'kui-text-node block\'>这里是注释，或HTML</small>',label:true,onClick:false},{text:'点击无效',onClick:false},{text:'退出登录'},{text:'百度',onClick:{href:' http://www.baidu.com/'}},{},{text:'关闭',className:'kui-bg-warning'}])">常规</div>
+			<div class="kui-btn-success" onClick="$.actions([{text:'首页'},{text:'退出登录'},{text:'百度连接',onClick:{href:' http://www.baidu.com/'}},{},{text:'关闭',className:'kui-bg-warning'}],{anim:'top',style:'top:0'})">自定义</div>
+			
+			<div class="kui-line-title"><span class="kui-line-txt">消息提示</span></div>
+			<div class="kui-btn-success" onClick="$.toast('提示信息')">简单提示</div>
+			<div class="kui-btn-success" onClick="$.toast('提示信息','icon-yes')">带图标提示</div>
+			<div class="kui-btn-success" onClick="$.toast({content:'高级提示',style:'background:rgba(255,255,0,0.7);color:#C00;',timeout:5},'icon-yes')">高级提示</div>
+			<div class="kui-line-title"><span class="kui-line-txt">加载提示</span></div>
+			<div class="kui-btn-success" onClick="$.loading()">加载提示</div>
+			<div class="kui-btn-success" onClick="$.loading('请稍等一下')">带文字的</div>
+			<div class="kui-line-title"><span class="kui-line-txt">选项卡页</span></div>
+			<div class="kui-btn-success" onClick="$.tabpage([{title:'标签一',content:'标签一的内容'},{title:'标签二',content:'标签二的内容'},{title:'标签三',content:'标签三的内容'}])">标签页</div>
+			<div class="kui-btn-success" onClick="$.tabpage([{title:'标签一',content:'标签一的内容'},{title:'标签二',content:'标签二的内容'},{title:'标签三',content:'标签三的内容'}],{tabbtn:'kui-btn-success'})">设置切换按扭组</div>
+			<div class="kui-line-title"><span class="kui-line-txt">高级</span></div>
+			<div class="kui-btn-success" onClick="$.layer({head:'JS滚动',content:function(){var cc='';for(var i=0;i<=100;i++){cc+='<li>line:'+i+'</li>'};return cc;},scroller:{scrollbars:true},size:['220px','250px']})">JS滚动</div>
+			<div class="kui-btn-success" onClick="$.layer({head:{title:'带侧栏',btn:[{text:'关闭'},{text:'侧栏',icon:'fr kui-layer-sidebtn',isclose:false}]},content:'321',side:'side32321',foot:'底部',size:['90%','90%']})">带侧栏</div>
+		</div>
+		<div class="kui-block-title">Layer核心类</div>
+		<div class="kui-blocker" style="padding-top:1px;margin:0;">
+			<div class="kui-line-title"><span class="kui-line-txt">基本参数</span></div>
+			<table class="kui-table kui-table-active" width="100%" border="0" cellspacing="0" cellpadding="5">
+				<tr>
+					<th>参数</th>
+					<th>类型</th>
+					<th>说明</th>
+				</tr>
+				<tr>
+					<td>id</td>
+					<td>string</td>
+					<td>弹层ID，有唯一性</td>
+				</tr>
+				<tr>
+					<td>type</td>
+					<td>string</td>
+					<td>弹层类型</td>
+				</tr>
+				<tr>
+					<td>head</td>
+					<td>str/obj</td>
+					<td>层头部，数据格式：{title:'头部标题'，}</td>
+				</tr>
+				<tr>
+					<td>content</td>
+					<td>string</td>
+					<td>内容区</td>
+				</tr>
+				<tr>
+					<td>footer</td>
+					<td>string</td>
+					<td>脚注</td>
+				</tr>
+				<tr>
+					<td>skin</td>
+					<td>string</td>
+					<td>自定义层样式(皮肤)名</td>
+				</tr>
+				<tr>
+					<td>size</td>
+					<td>array</td>
+					<td>层尺寸，如：['300px','250px']或['80%','50%']</td>
+				</tr>
+				<tr>
+					<td>style</td>
+					<td>str/obj</td>
+					<td>自定义CSS样式，如：{color:'#F00'}，或'color:#F00'</td>
+				</tr>
+				<tr>
+					<td>anim</td>
+					<td>str/arr</td>
+					<td>入场效果，如：left/right/top/bottom/fade/zoom，也可以输入自定义效果，格式如：[{初始CSS},{入场动画},{出场动画},time]</td>
+				</tr>
+				<tr>
+					<td>autoshow</td>
+					<td>boolean</td>
+					<td>是否自动显示，如果否，则需要用obj.show()方法去显示</td>
+				</tr>
+				<tr>
+					<td>shade</td>
+					<td>boo/css</td>
+					<td>是否显示遮罩层，true或定义遮罩层的css样式</td>
+				</tr>
+				<tr>
+					<td>shadeclose</td>
+					<td>boolean</td>
+					<td>点击遮罩层是否关闭</td>
+				</tr>
+				<tr>
+					<td>timeout</td>
+					<td>number</td>
+					<td>秒，定时关闭遮罩层</td>
+				</tr>
+				<tr>
+					<td>scroller</td>
+					<td>false</td>
+					<td>开始JS滚动，依赖Scroller.js</td>
+				</tr>
+				<tr>
+					<td>onshow</td>
+					<td>function</td>
+					<td>当显示后回调函数</td>
+				</tr>
+				<tr>
+					<td>onclose</td>
+					<td>function</td>
+					<td>当关闭后回调函数</td>
+				</tr>
+			</table>
+			<div class="kui-line-title"><span class="kui-line-txt">方法</span></div>
+			<table class="kui-table kui-table-active" width="100%" border="0" cellspacing="0" cellpadding="5">
+				<tr>
+					<th>方法名</th>
+					<th>说明</th>
+				</tr>
+				<tr>
+					<td>$.layer.show(layer)</td>
+					<td>显示层，layer为层对象，或层ID</td>
+				</tr>
+				<tr>
+					<td>$.layer.close(layer,call,true)</td>
+					<td>关闭层，当layer为All时，可关闭所有层。同时call为层类型时，可以关闭同类型的所有层。第三个参数为关闭后是否删除Dom</td>
+				</tr>
+			</table>
+			<div class="kui-line-title"><span class="kui-line-txt">事件</span></div>
+			<table class="kui-table kui-table-active" width="100%" border="0" cellspacing="0" cellpadding="5">
+				<tr>
+					<th>事件</th>
+					<th>说明</th>
+				</tr>
+				<tr>
+					<td>show</td>
+					<td>显示后触发</td>
+				</tr>
+				<tr>
+					<td>close</td>
+					<td>关闭后触发</td>
+				</tr>
+			</table>
+		</div>
+		<div class="kui-block-title">$.alert类</div>
+		<div class="kui-blocker" style="padding-top:1px;margin:0;">
+			<div class="kui-line-title"><span class="kui-line-txt">基本参数</span></div>
+			<table class="kui-table kui-table-active" width="100%" border="0" cellspacing="0" cellpadding="5">
+				<tr>
+					<th>参数</th>
+					<th>类型</th>
+					<th>说明</th>
+				</tr>
+				<tr>
+					<td>content</td>
+					<td>string</td>
+					<td>内容，必填</td>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td>string</td>
+					<td>标题，可不填</td>
+				</tr>
+				<tr>
+					<td>button</td>
+					<td>Array</td>
+					<td>按扭，如['取消','确定']</td>
+				</tr>
+				<tr>
+					<td>callback</td>
+					<td>Function</td>
+					<td>回调，可不填</td>
+				</tr>
+			</table>
+			<p class="kui-tips-default Mg">$.alert(content,title,button,callback)，content为必填项，其他三个参数可以不填，也不讲究顺序。</p>
+			<div class="Pb"></div>
+		</div>
+		<div class="kui-block-title">$.actions(button,option)</div>
+		<div class="kui-blocker" style="padding-top:1px;margin:0;">
+			<div class="kui-line-title"><span class="kui-line-txt">button参数</span></div>
+			<table class="kui-table kui-table-active" width="100%" border="0" cellspacing="0" cellpadding="5">
+				<tr>
+					<th>参数</th>
+					<th>类型</th>
+					<th>说明</th>
+				</tr>
+				<tr>
+					<td>text</td>
+					<td>string</td>
+					<td>按扭文字</td>
+				</tr>
+				<tr>
+					<td>label</td>
+					<td>boolean</td>
+					<td>是否为Label，为true时，点击不隐藏，且内容左对齐</td>
+				</tr>
+				<tr>
+					<td>onClick</td>
+					<td>fun/obj/none</td>
+					<td>点击事件，可以为Function，或连接{href:'网址',target:'_blank'}</td>
+				</tr>
+				<tr>
+					<td>className</td>
+					<td>string</td>
+					<td>按扭样式，可以填写<a href="base.html">base</a>中的状态背景，或状态文字样式<small class="block kui-tips-default">小技巧：如果className带有unHide则点击不关闭。</small></td>
+				</tr>
+			</table>
+			<p class="kui-tips-default Mg">
+				$.actions(button,option)<br>
+				<i class="icon-angle-right"></i>button为按扭组，如[{text:'用户首页'},{text:'用户资料'},{},{text:'关闭'}]其中{}为分隔线<br>
+				<i class="icon-angle-right"></i>option继承$.layer核心参数所有属性
+			</p>
+			<div class="Pb"></div>
+		</div>
+		<div class="kui-block-title">$.toast(option,icon)</div>
+		<div class="kui-blocker" style="padding-top:1px;margin:0;">
+			<div class="kui-line-title"><span class="kui-line-txt">参数</span></div>
+			<table class="kui-table kui-table-active" width="100%" border="0" cellspacing="0" cellpadding="5">
+				<tr>
+					<th>参数</th>
+					<th>类型</th>
+					<th>说明</th>
+				</tr>
+				<tr>
+					<td>option</td>
+					<td>str/obj</td>
+					<td>文字内容，或核心类参数</td>
+				</tr>
+				<tr>
+					<td>icon</td>
+					<td>string</td>
+					<td>图标，参考：<a href="icon.html">icon</a></td>
+				</tr>
+			</table>
+			<div class="Pb"></div>
+		</div>
+		<div class="kui-block-title">$.loading(text)</div>
+		<div class="kui-blocker" style="padding-top:1px;margin:0;">
+			<div class="kui-line-title"><span class="kui-line-txt">参数</span></div>
+			<p class="Mg">$.loading(text),text为加载提示文字，可以为空</p>
+			<div class="Pb"></div>
+		</div>
+		<div class="kui-block-title">$.tabpage(tab,option)</div>
+		<div class="kui-blocker" style="padding-top:1px;margin:0;">
+			<div class="kui-line-title"><span class="kui-line-txt">参数说明</span></div>
+			<p class="Pd">
+				tab为数组，[{title:'标签一',content:'标签一的内容'}]<br>
+				option在继承核心参数的基础上，新增两个独有参数：<br>
+				<span class="kui-badge-muted">active</span>数字，默认活动的选项卡，默认为0<br>
+				<span class="kui-badge-muted">tabbtn</span>选项卡按扭样式，参考：<a href="button.html">button</a>
+			</p>
+		</div>
+	</div>
+</div>
+<script>
+/*
+var lays=$.layer({head:'JS滚动',content:function(){var cc='';for(var i=0;i<=100;i++){cc+='<li>line:'+i+'</li>'};return cc;},scroller:{scrollbars:true},size:['220px','250px']});
+lays.scrollTo(0, -200);
+lays.on('scrollStart',function(){
+	console.log('+')
+})
+//lays.jRoll.disable()
+console.log(lays);
+*/
+/*lays.jRoll.on('scroll',function(){
+	
+})*/
+//$.layer({content:list,size:['90%','200px'],scroller:{startY:-300,scrollbars:true}})
+//confirm('ddd')
+//alert('ddd')
+//$.layer({id:'myLayer',head:'sdf',content:'sdf',foot:'df',skin:'myskin'})
+//$.alert('<p>sdfsdfsdf</p>','标题',['取消','确定'])
+//$.actions([{text:'首页'},{text:'退出登录'},{text:'百度',onClick:{href:' http://www.baidu.com/'}},{},{text:'关闭',className:'kui-bg-warning'}])
+</script>
+</body>
+</html>

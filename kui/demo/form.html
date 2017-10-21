@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>KUI - From</title>
+<link rel="stylesheet/less" type="text/css" href="../src/less/index.less" />
+<script src="js/less.min.js" type="text/javascript"></script>
+<script src="../lib/zepto.min.js"></script>
+
+<style>
+.demo-icon{font-family:"kui-icon";font-weight:normal;font-style:normal;margin-left:0.5rem;display:inline-block;width:1.2rem;font-size:1rem;}
+.demo-icon:before,.i-code{display:none;}
+
+
+.icon-box{-webkit-user-select:auto;user-select:auto;padding:0.5rem 0;}
+.icon-box .the-icons{width:50%;float:left; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+</style>
+</head>
+
+<body ontouchstart>
+	<div class="kui-page">
+	<div class="kui-header">
+		<div class="pull-left icon-left app-back" onClick="history.back()">返回</div>
+		<h1 class="kui-title">From</h1>
+	</div>
+	<div class="kui-content">
+		<div class="kui-block-title">表单</div>
+		<div class="kui-list kui-form kui-1px-tb">
+			<li class="kui-list-item">
+				<div class="kui-form-label">姓名</div>
+				<div class="kui-form-input"><input type="text" placeholder="请输入姓名" /></div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-label">性别</div>
+				<div class="kui-form-input"><label><input type="radio" name="sex" checked /><span>男生</span></label><label><input type="radio" name="sex" />女生</label></div>
+			</li>
+			<li class="kui-list-item kui-form-error">
+				<div class="kui-form-label">电话</div>
+				<div class="kui-form-input"><input type="tel" placeholder="请输入电话" /></div>
+				<div class="kui-list-cell icon-attention"></div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-label">禁用</div>
+				<div class="kui-form-input"><input type="text" placeholder="禁用输入框" readonly /></div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-label">生日</div>
+				<div class="kui-form-input"><input type="date" placeholder="请输入生日" /></div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-label">生日</div>
+				<div class="kui-form-input"><input type="datetime-local"></div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-label">数值</div>
+				<div class="kui-form-input"><input id="Slider" type="range" min="0" max="500" oninput="regval.innerHTML=this.value"  /></div>
+				<div id="regval" class="kui-list-cell">250</div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-label">爱好</div>
+				<div class="kui-form-input">
+					<label><input type="checkbox" name="hobe" /><span>读书</span></label>
+					<label><input type="checkbox" name="hobe" />音乐</label>
+					<label><input type="checkbox" name="hobe" />电影</label>
+				</div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-label">地区</div>
+				<div class="kui-form-input">
+					<select>
+						<option>广东</option>
+						<option>四川</option>
+						<option>湖南</option>
+					</select>
+					<select>
+						<option>东莞</option>
+						<option>虎门</option>
+						<option>长安</option>
+					</select>
+				</div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-input">是否验证</div>
+				<div><input type="checkbox" class="kui-switch" /></div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-input">是否订阅</div>
+				<div><input type="checkbox" class="kui-switch" checked /></div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-label">验证</div>
+				<div class="kui-form-input"><input type="tel" placeholder="请输入验证码" /></div>
+				<div class="kui-form-vcode"><div class="kui-btn-default">获取验证码</div></div>
+			</li>
+			<li class="kui-list-item">
+				<div class="kui-form-label">备注</div>
+				<div class="kui-form-input"><textarea placeholder="请输入备注"></textarea></div>
+			</li>
+			<li class="kui-list-item">
+				<a class="kui-btn-default kui-btn-block kui-col-1">取消</a>
+				<button class="kui-btn-success kui-btn-block kui-col-1">提交表单</button>
+			</li>
+		</div>
+		<div class="kui-block-title">单选switch列表</div>
+		<div class="kui-list kui-form">
+			<label class="kui-list-item">
+				<div class="kui-form-input">晴空万里</div>
+				<div class="kui-list-cell">
+					<input type="radio" name="tq" class="kui-switch" checked />
+				</div>
+			</label>
+			<label class="kui-list-item">
+				<div class="kui-form-input">万里无云</div>
+				<div class="kui-form-label">
+					<input type="radio" name="tq" class="kui-switch" />
+				</div>
+			</label>
+			<label class="kui-list-item">
+				<div class="kui-form-input">心情高兴</div>
+				<div class="kui-form-label">
+					<input type="radio" name="tq" class="kui-switch" />
+				</div>
+			</label>
+		</div>
+		<div class="kui-block-title">单选列表</div>
+		<div class="kui-list kui-form">
+			<label class="kui-list-item">
+				<div class="kui-form-input">晴空万里</div>
+				<div class="kui-list-cell">
+					<input type="radio" name="ab" class="kui-form-radio" />
+				</div>
+			</label>
+			<label class="kui-list-item">
+				<div class="kui-form-input">万里无云</div>
+				<div class="kui-form-label">
+					<input type="radio" name="ab" class="kui-form-radio" />
+				</div>
+			</label>
+			<label class="kui-list-item">
+				<div class="kui-form-input">心情高兴</div>
+				<div class="kui-form-label">
+					<input type="radio" name="ab" class="kui-form-radio" />
+				</div>
+			</label>
+		</div>
+		<div class="kui-block-title">多选列表</div>
+		<div class="kui-list kui-form">
+			<label class="kui-list-item">
+				<div class="kui-form-input">读书</div>
+				<div class="kui-list-cell">
+					<input type="checkbox" name="hb" class="kui-form-checkbox" />
+				</div>
+			</label>
+			<label class="kui-list-item">
+				<div class="kui-form-input">听音乐</div>
+				<div class="kui-form-label">
+					<input type="checkbox" name="hb" class="kui-form-checkbox" />
+				</div>
+			</label>
+			<label class="kui-list-item">
+				<div class="kui-form-input">看电影</div>
+				<div class="kui-form-label">
+					<input type="checkbox" name="hb" class="kui-form-checkbox" />
+				</div>
+			</label>
+		</div>
+	</div>
+</div>
+</body>
+</html>

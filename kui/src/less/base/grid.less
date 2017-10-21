@@ -1,0 +1,23 @@
+/*百分比栅格*/
+.kui-row{display:block;overflow:hidden}
+.kui-row [class*="kui-col-"]{float:left;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.kui-col-10{width:10%}
+.kui-col-20{width:20%}
+.kui-col-25{width:25%}
+.kui-col-33{width:33.3333%}
+.kui-col-50{width:50%}
+.kui-col-67{width:66.6666%}
+.kui-col-75{width:75%}
+.kui-col-80{width:80%}
+.kui-col-90{width:90%}
+
+/*弹性盒子栅格*/
+.kui-row-flex{width:100%;display:-webkit-box;-webkit-box-sizing:border-box}
+[class*="kui-col-"]{float:none;display:block;}
+.kui-col-1{-webkit-box-flex:1;box-flex:1;}
+.kui-col-2{-webkit-box-flex:2;box-flex:2;}
+.kui-col-3{-webkit-box-flex:3;box-flex:3;}
+.kui-col-4{-webkit-box-flex:4;box-flex:4;}
+/*垂直*/
+.kui-row-flex-ver{-webkit-box-orient:vertical}
+.kui-row-flex-ver [class*="kui-col-"]{width:100%;}

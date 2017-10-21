@@ -1,0 +1,105 @@
+//设置placeholder样式
+.placeholder(@a){
+      &::-webkit-input-placeholder { /* WebKit browsers */
+            @a();
+      }
+}
+//添加浏览器前缀
+.prefix(@style,@value){
+	-webkit-@{style}: @value;
+			@{style}: @value;
+}
+
+.scrollable(){
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+//弹性盒子
+.flexbox(){
+    display: -webkit-box;
+	display: box;
+	
+    //display: -webkit-flex;
+    //display: flex;
+}
+.box-flex(@val){
+	-webkit-box-flex:@val;
+	box-flex:@val;
+	
+	//-webkit-flex:@val;
+	//flex:@val;
+}
+.box-orient(@val){
+	-webkit-box-orient:@val;
+	box-orient:@val;
+}
+
+//以下待删
+.justify-content(@jc) when (@jc = flex-start) {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+.justify-content(@jc) when (@jc = flex-end) {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+.justify-content(@jc) when (@jc = space-between) {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+.justify-content(@jc) when not (@jc = flex-start) and not (@jc = flex-end) and not (@jc = space-between) {
+    -webkit-box-pack: @jc;
+    -webkit-justify-content: @jc;
+    justify-content: @jc;
+}
+
+.align-items(@ai) when (@ai = flex-start) {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
+.align-items(@ai) when (@ai = flex-end) {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+.align-items(@ai) when not (@ai = flex-start) and not (@ai = flex-end) {
+    -webkit-box-align: @ai;
+    -webkit-align-items: @ai;
+    align-items: @ai;
+}
+
+.hairline(@position, @color) when (@position = top) {
+  border-top: 1px solid @color;
+}
+.hairline(@position, @color) when (@position = left) {
+  border-left: 1px solid @color;
+}
+.hairline(@position, @color) when (@position = bottom) {
+  border-bottom: 1px solid @color;
+}
+.hairline(@position, @color) when (@position = right) {
+  border-right: 1px solid @color;
+}
+
+// For right and bottom
+.hairline-remove(@position) when not (@position = left) and not (@position = top) {
+    &:after {
+        display: none;
+    }
+}
+// For left and top
+.hairline-remove(@position) when not (@position = right) and not (@position = bottom) {
+    &:before {
+        display: none;
+    }
+}
+
+.flex-shrink(@fs) {
+    -webkit-flex-shrink: @fs;
+    -ms-flex: 0 @fs auto;
+    flex-shrink: @fs;
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>KUI - Layout</title>
+<link rel="stylesheet/less" type="text/css" href="../src/less/index.less" />
+<script src="js/less.min.js" type="text/javascript"></script>
+<style>
+.kui-header-secondary,.kui-footer-secondary{background:#FFC}
+.kui-side-left,.kui-side-right{background:#333;color:#FFF;}
+</style>
+</head>
+
+<body>
+<div class="kui-page-fixed">
+	<div class="kui-header">
+		<div class="pull-left icon-left app-back" onClick="history.back()">返回</div>
+		<h1 class="kui-title">Layout</h1>
+		<div class="pull-right icon-menu" onClick="$('body').toggleClass('open-side-right');">侧栏</div>
+	</div>
+	<div class="kui-header-secondary">secondary</div>
+	<div class="kui-footer-secondary">secondary</div>
+	<div class="kui-footer">footer</div>
+	<div class="kui-content">
+		<div style=" background:#FFF;">
+		<h3>渔家傲-</h3>
+		<p>塞下秋来风景异。衡阳雁去无留意。四面边声连角起。千嶂里。长烟落日孤城闭。</p>
+		<p>浊酒一杯家万里。燕然未勒归无计。羌管悠悠霜满地。人不寐。将军白发征夫泪。</p>
+		<p class="Pd kui-1px-tb Mtb" align="center">
+			<a class="kui-btn-danger Mr" onClick="$('body').toggleClass('open-side-left');"><i class="icon-angle-left"></i>打开左边侧栏</a>
+			<a class="kui-btn-danger" onClick="$('body').toggleClass('open-side-right');">打开右边侧栏<i class="icon-angle-right"></i></a>
+		</p>
+		<h3>渔家傲</h3>
+		<p>塞下秋来风景异。衡阳雁去无留意。四面边声连角起。千嶂里。长烟落日孤城闭。</p>
+		<p class="aa" style="position:relative;">浊酒一杯家万里。燕然未勒归无计。羌管悠悠霜满地。人不寐。将军白发征夫泪。</p>
+		<h3>渔家傲</h3>
+		<p>塞下秋来风景异。衡阳雁去无留意。四面边声连角起。千嶂里。长烟落日孤城闭。</p>
+		<p>浊酒一杯家万里。燕然未勒归无计。羌管悠悠霜满地。人不寐。将军白发征夫泪。</p>
+		<h3>渔家傲</h3>
+		<p>塞下秋来风景异。衡阳雁去无留意。四面边声连角起。千嶂里。长烟落日孤城闭。</p>
+		<p>浊酒一杯家万里。燕然未勒归无计。羌管悠悠霜满地。人不寐。将军白发征夫泪。</p>
+		<h3>渔家傲</h3>
+		<p>塞下秋来风景异。衡阳雁去无留意。四面边声连角起。千嶂里。长烟落日孤城闭。</p>
+		<p>浊酒一杯家万里。燕然未勒归无计。羌管悠悠霜满地。人不寐。将军白发征夫泪。</p>
+		<h3>渔家傲</h3>
+		<p>塞下秋来风景异。衡阳雁去无留意。四面边声连角起。千嶂里。长烟落日孤城闭。</p>
+		<p>浊酒一杯家万里。燕然未勒归无计。羌管悠悠霜满地。人不寐。将军白发征夫泪。</p>
+		<h3>渔家傲</h3>
+		<p>塞下秋来风景异。衡阳雁去无留意。四面边声连角起。千嶂里。长烟落日孤城闭。</p>
+		<p>浊酒一杯家万里。燕然未勒归无计。羌管悠悠霜满地。人不寐。将军白发征夫泪。</p>
+		</div>
+	</div>
+</div>
+<div class="kui-side-left Pd">
+	<p>右侧栏菜单</p>
+	<p>给body添加‘open-side-right’打开右边侧栏</p>
+	<p><a class="kui-btn-success" onClick="$('body').removeClass('open-side-left');">关闭侧栏</a></p>
+</div>
+<div class="kui-side-right Pd">
+	<p>右侧栏菜单</p>
+	<p>给body添加‘open-side-left’打开左边侧栏</p>
+	<p><a class="kui-btn-success" onClick="$('body').removeClass('open-side-right');">关闭侧栏</a></p>
+</div>
+
+
+<!--
+<script src="../dist/js/kui.all.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../dist/css/kui.min.css">
+-->
+<script src="../lib/zepto.min.js"></script>
+<script src="../src/js/fastClick.js"></script>
+<script src="../src/js/init.js"></script>
+<script src="../src/js/layer.js"></script>
+<script src="../src/js/zepto-adapter.js"></script>
+
+<script src="../dist/plus/scroller.min.js"></script>
+<!--<script src="../lib/vconsole.min.js"></script>-->
+<script>
+$.mask('.aa').show().on('click',function(){
+	//alert('click')
+})
+//var myscroll=new IScroll('.kui-content');
+$('.kui-content').scroller({inner:'background:#FFF',
+	ready:function(){
+		//console.log($(this).data('scroller'))
+		//console.log(this)
+		$(this).scrollTo(0,-200,100);
+	}
+});
+$('.kui-content').on('scrollReady',function(e){
+	console.log('滚动初始化完成')
+})
+setTimeout(function(){
+	//$('.kui-content').scrollBy(0,-300,800)
+	//$('.kui-content').scrollToElement('.aa')
+	//$('.kui-content').scrollTo(0,-300,300)
+},1000)
+//console.log($('.kui-content'));
+
+
+//$('.kui-content').setscroll().scrollTo(50)
+</script>
+</body>
+</html>

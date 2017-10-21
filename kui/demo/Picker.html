@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Layer</title>
+<link rel="stylesheet/less" type="text/css" href="../src/less/index.less" />
+
+<script src="js/less.min.js" type="text/javascript"></script>
+
+<script src="../lib/zepto.min.js"></script>
+<script src="../dist/js/kui.js"></script>
+
+
+
+<script src="../src/plus/picker/picker.js"></script>
+<!--时间-->
+<script src="../src/plus/picker/datetime-picker.js?4"></script>
+<!--地址-->
+<script src="../src/plus/picker/city-data.js"></script>
+<script src="../src/plus/picker/city-picker.js"></script>
+<style>
+table td:nth-child(3){word-wrap:break-word; word-break: break-all;}
+</style>
+
+</head>
+
+<body>
+<div class="kui-page">
+	<div class="kui-header">
+		<div class="pull-left icon-left app-back" onClick="history.back()">返回</div>
+		<h1 class="kui-title">Picker</h1>
+	</div>
+	<div class="kui-content">
+		<div class="kui-block-title">Picker</div>
+		<div class="kui-blocker">
+			<div class="kui-list kui-from kui-1px-tb">
+				<li class="kui-list-item">
+					<div class="kui-form-label">手机</div>
+					<div class="kui-form-input"><input id="text1" type="text" placeholder="手机" /></div>
+				</li>
+				<li class="kui-list-item">
+					<div class="kui-form-label">称呼</div>
+					<div class="kui-form-input"><input id="text2" type="text" placeholder="称呼" /></div>
+				</li>
+				<li class="kui-list-item">
+					<div class="kui-form-label">生日</div>
+					<div class="kui-form-input"><input id="bsday" type="text" placeholder="请输入生日" /></div>
+				</li>
+				<li class="kui-list-item">
+					<div class="kui-form-label">地区</div>
+					<div class="kui-form-input"><input id="city" type="text" placeholder="地区" /></div>
+				</li>
+			</div>
+			<div class="kui-blocker selbox">
+				
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+.kvcol{-webkit-box-flex:1;}
+</style>
+<script>
+
+$("#text1").picker({
+	title:'手机',
+	cols: [{
+		textAlign: 'center',
+		values: ['iPhone 4', 'iPhone 4S', 'iPhone 5', 'iPhone 5S', 'iPhone 6', 'iPhone 6 Plus', 'iPad 2', 'iPad Retina', 'iPad Air', 'iPad mini', 'iPad mini 2', 'iPad mini 3'],
+		className: 'picker-items-col-full'
+	}]
+});
+$("#text2").picker({
+	title:'称呼',
+	cols: [{
+		textAlign: 'center',
+		values: ['赵', '钱', '孙', '李', '周', '吴', '郑', '王']
+	},
+	{
+		textAlign: 'center',
+		values: ['杰伦', '磊', '明', '小鹏', '燕姿', '菲菲', 'Baby']
+	},
+	{
+		textAlign: 'center',
+		values: [{text:'先生',value:'Mr.'}, {text:'小姐',value:'Ms.'}]
+	}],
+	onclose:function(){
+		console.log('ccccc')
+	},
+	onshow:function(){
+		console.log('dddd')
+	}
+});
+
+$("#bsday").datetimePicker({
+	title:'你的生日',
+	//value: '1986-2-5 5:3'//['1985', '12', '04', '9', '34']
+});
+
+$("#city").cityPicker({
+	title:'请选择地区',
+	value:['天津', '河东区']
+	//value: ['四川', '内江', '东兴区']
+});
+
+</script>
+</body>
+</html>

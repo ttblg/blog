@@ -1,0 +1,99 @@
+[class*="kui-btn-"]{
+	color:#FFF;
+	font-size:.7rem;height:1.6rem;line-height:1.6rem;
+	padding:0 .8rem;
+	text-decoration:none;
+	text-align:center;
+	display:inline-block;
+	border-radius:@round;
+	box-sizing:border-box;
+	-webkit-appearance:none;
+	appearance:none;
+	white-space:nowrap;
+	position:relative;
+	text-overflow:ellipsis;
+	cursor:pointer;
+	.unselect;
+}
+[class*="kui-btn-"]:after {
+	content:"";
+	width:200%;
+	height:200%;
+	position:absolute;
+	top:0;
+	left:0;
+	border:1px solid rgba(0, 0, 0, .2);
+	transform:scale(.5);
+	-webkit-transform:scale(.5);
+	transform-origin:0 0;
+	-webkit-transform-origin:0 0;
+	box-sizing:border-box;
+	border-radius:@round*2;
+	pointer-events:none;
+}
+
+[class*="kui-btn-"].disabled,[class*="kui-btn-"]:disabled{background:#EEE;color:#C6C6C6;box-shadow:none;}
+[class*="kui-btn-"]:not(.disabled):not(:disabled):active{color:rgba(255,255,255,.8);}
+[class*="kui-btn-"].active{color:#FFF;}
+
+/*实心按扭*/
+.kui-btn-default{background:#f4f4f4;color:#454545;}
+.kui-btn-primary{background:@color-primary;}
+.kui-btn-success{background:@color-success;}
+.kui-btn-danger{background:@color-danger;}
+.kui-btn-warning{background:@color-warning;}
+.kui-btn-default:not(.disabled):not(:disabled):active,.kui-btn-default.active,
+.kui-btn-plain-default:not(.disabled):not(:disabled):active,.kui-btn-plain-default.active,
+{background:#e0e0e0;color:#444;}
+.kui-btn-primary:not(.disabled):not(:disabled):active,.kui-btn-primary.active,
+.kui-btn-plain-primary:not(.disabled):not(:disabled):active,.kui-btn-plain-primary.active
+{background:@color-primary-active;}
+.kui-btn-success:not(.disabled):not(:disabled):active,.kui-btn-success.active,
+.kui-btn-plain-success:not(.disabled):not(:disabled):active,.kui-btn-plain-success.active
+{background:@color-success-active;}
+.kui-btn-danger:not(.disabled):not(:disabled):active,.kui-btn-danger.active,
+.kui-btn-plain-danger:not(.disabled):not(:disabled):active,.kui-btn-plain-danger.active
+{background:@color-danger-active;}
+.kui-btn-warning:not(.disabled):not(:disabled):active,.kui-btn-warning.active,
+.kui-btn-plain-warning:not(.disabled):not(:disabled):active,.kui-btn-plain-warning.active
+{background:@color-warning-active;}
+
+/*空心按扭*/
+.kui-btn-plain-default{color:@color-default;}
+.kui-btn-plain-primary{color:@color-primary;
+	&:after{
+		border:@color-primary solid 1px;
+	}
+}
+.kui-btn-plain-success{color:@color-success;
+	&:after{
+		border:@color-success solid 1px;
+	}
+}
+.kui-btn-plain-danger{color:@color-danger;
+	&:after{
+		border:@color-danger solid 1px;
+	}
+}
+.kui-btn-plain-warning{color:@color-warning;
+	&:after{
+		border:@color-warning solid 1px;
+	}
+}
+
+/*按扭状态*/
+.kui-btn-s{font-size:.7rem;height:1.3rem;line-height:1.3rem;}
+.kui-btn-m{font-size:.8rem;height:2rem;line-height:2rem;}
+.kui-btn-lg{font-size:.9rem;height:2.5rem;line-height:2.5rem;}
+.kui-btn-block{display:block;}
+
+/*按扭组*/
+.kui-btns-group{display:-webkit-box;-webkit-box-sizing:border-box;-webkit-box-lines:single;flex-wrap:nowrap;}
+.kui-btns-group [class*="kui-btn-"],.kui-btns-group [class*="kui-btn-"]:after{display:block;border-radius:0;}
+.kui-btns-group [class*="kui-btn-"]{-webkit-box-flex:1;box-flex:1;}
+.kui-btns-group [class*="kui-btn-"]:after{border-right-width:0px;}
+.kui-btns-group [class*="kui-btn-"]:first-child{border-top-left-radius:@round;border-bottom-left-radius:@round;}
+.kui-btns-group [class*="kui-btn-"]:last-child{border-top-right-radius:@round;border-bottom-right-radius:@round;}
+.kui-btns-group [class*="kui-btn-"]:first-child:after{border-top-left-radius:@round*2;border-bottom-left-radius:@round*2;}
+.kui-btns-group [class*="kui-btn-"]:last-child:after{border-top-right-radius:@round*2;border-bottom-right-radius:@round*2;border-right-width:1px;}
+

@@ -1,0 +1,53 @@
+/* reset */
+button,input,select,textarea{
+	display:block;
+	font-family:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	font-weight:inherit;
+	outline:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	border:none;
+	background:none;
+	font-family:"kui-icon";
+	
+	-webkit-box-flex:1;box-flex:1;
+	
+}
+textarea{min-height:3rem;line-height:1rem;padding:0.3rem 0;}
+
+/*输入框样式*/
+.kui-form-error{color:@color-warning;background-color:lighten(@color-warning,39%)}
+.kui-form-error input,.kui-form-error textarea{.placeholder({color:@color-warning})}
+
+input:not(.kui-switch),select,.kui-form-label,.kui-form-input{line-height:1.6rem;min-height:1.6rem;}
+.kui-form-input{-webkit-box-flex:1;box-flex:1;display:-webkit-box;-webkit-box-orient:horizontal;}
+.kui-form-input label{display:inline-block;padding:0 0.3rem;}
+
+input[type="radio"]:not(.kui-switch),input[type="checkbox"]:not(.kui-switch){display:inline-block;vertical-align:middle;width:1.5rem;overflow:visible;position:relative;text-align:center;color:#CCC;background:none;padding:0;text-rendering:auto;-webkit-font-smoothing:antialiased;}
+input[type="radio"]:after,input[type="checkbox"]:after{display:inline-block;font-size:1.3rem;}
+input[type="radio"]:not(.kui-switch):checked,input[type="checkbox"]:not(.kui-switch):checked{color:@color-success;}
+input[type="radio"]:not(.kui-switch):after{content:'\f1db';}
+input[type="radio"]:not(.kui-switch):checked:after{content:'\e800';}
+input[type="checkbox"]:not(.kui-switch):after{content:'\f096';}
+input[type="checkbox"]:not(.kui-switch):checked:after{content:'\e804';}
+
+input[type="range"]{}
+/*input[type="range"]:after{content:'';height:1px;background-color:#EEE;position:absolute;left:0;top:50%;width:100%;}*/
+input[type="range"]::-webkit-slider-runnable-track{height:2px;background:#EEE;}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;display:block;width:1.4rem;height:1.4rem;border-radius:100%;background:#FFF;margin-top:-0.7rem; box-shadow:0 0 3px rgba(102,102,102,.8);border:0;}
+
+.readonly{color:rgba(0,0,0,.2);text-shadow:0.5px 0.5px 0px rgba(0,0,0,.1);}
+
+.kui-switch{position:relative;width:52px;height:32px;border:1px solid #DFDFDF;outline:0;border-radius:16px;box-sizing:border-box;background-color:#DFDFDF;-webkit-transition:background-color .1s,border .1s;transition:background-color .1s,border .1s}
+.kui-switch:before{content:" ";position:absolute;top:0;left:0;width:50px;height:30px;border-radius:15px;background-color:#FDFDFD;-webkit-transition:-webkit-transform .35s cubic-bezier(.45,1,.4,1);transition:-webkit-transform .35s cubic-bezier(.45,1,.4,1);transition:transform .35s cubic-bezier(.45,1,.4,1);transition:transform .35s cubic-bezier(.45,1,.4,1),-webkit-transform .35s cubic-bezier(.45,1,.4,1)}
+.kui-switch:after{content:" ";position:absolute;top:0;left:0;width:30px;height:30px;border-radius:15px;background-color:#FFF;box-shadow:0 1px 3px rgba(0,0,0,.4);-webkit-transition:-webkit-transform .35s cubic-bezier(.4,.4,.25,1.35);transition:-webkit-transform .35s cubic-bezier(.4,.4,.25,1.35);transition:transform .35s cubic-bezier(.4,.4,.25,1.35);transition:transform .35s cubic-bezier(.4,.4,.25,1.35),-webkit-transform .35s cubic-bezier(.4,.4,.25,1.35)}
+.kui-switch:checked{border-color:@color-success;background-color:@color-success}
+.kui-switch:checked:before{-webkit-transform:scale(0);transform:scale(0)}
+.kui-switch:checked:after{-webkit-transform:translateX(20px);transform:translateX(20px)}
+
+select{position:relative;padding-right:0.7rem;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADASURBVFhH7Y6BDcIwDAQzUkdhBEZgAxilkySjQU6y0Uu0pW1CAcknWWpc+88pCILg5yil3Gqd7NkNMnPOV3tOU4eGWners7WbIUtyB2tPUwdGGW4+ggzJG629DIOytPsIdiVnndxhQZY3H8GO7G+TOyxKyOojmJW9fXKHAAl7ewQzMt8mdwiS0Nkj+CdzfeQOgRL+cgQ9+d9X7hAskucRfEv/M3IHgcgQHyd3EIn0WLmD8Gtyp4ovlD2DIAj+kZQewqEc3hTHMlUAAAAASUVORK5CYII=') no-repeat right center;background-size:0.7rem 0.7rem;}
+.kui-form-input select{margin-right:0.5rem;}
+.kui-form-input select:last-child{margin-right:0;}

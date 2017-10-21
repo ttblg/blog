@@ -1,0 +1,259 @@
+body{
+	margin:0;
+	padding:0;
+	border:0;
+}
+.kui-header{
+	color:#FFF;
+	border-bottom:none;
+}
+.ma_heads{
+    background-color:#126ec3;
+}
+.we_heads{
+	background-image:linear-gradient(to bottom,rgba(252,81,85,1),rgba(252,52,57,1));
+}
+.kui-header .app-back:after{
+	content:'返回';
+}
+.ma_nav,.we_nav{
+	margin:.3rem auto;
+	width:85%;
+	z-index:1000;
+}
+.ma_nav li{
+	padding:0;
+	color:#FFF;
+	background-color:#1065b4;
+}
+.we_nav li{
+	padding:0;
+	color:#FFF;
+	background-color:#dd181c;
+	display:none;
+}
+.ct_img{
+	width:100%;
+	padding-bottom:48%;
+	background-image:url(./imgs/ct_01.png);
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+.main{
+	background-color:#FFF;
+	position:relative;
+}
+.ma_head,.we_head{
+	width:100%;
+	padding-top:5px;
+	padding-bottom:1%;
+	color:#FFF;
+	text-align:center;
+	background-image:linear-gradient(to bottom,rgba(255,255,255,0),rgba(0,0,0,.15));
+}
+.ma_head{
+    background-color:#1673c9;
+}
+.we_head{
+	background-color:#f93e42;
+}
+.ct_sex{
+	display:-webkit-box;
+    display:box;
+    text-align:center;
+}
+.ct_sex li{
+	-webkit-box-flex:1;
+	box-flex:1;
+	line-height:2rem; 
+	border-right:rgba(0,0,0,.1) solid 1px;
+	position:relative;
+}
+.ma_cur1{
+    background-color:#1a78cf;
+}
+.we_cur1{
+    background-color:#fc464a;
+}
+.ma_cur1 a,.we_cur1 a{
+	color:#FFF;
+}
+.ct_sex li:not(.ma_cur .we_cur):after{
+	display:block;
+	content:'';
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	height:30%;
+	background-image:linear-gradient(to bottom,rgba(255,255,255,0),rgba(0,0,0,.15));
+}
+.ct_sex li:last-child{
+	border-right:0;
+}
+.ct_sex .ma_cur,.ct_sex .we_cur{
+	background:#FFF;
+	position:relative;
+}
+.ct_sex .ma_cur{
+	background-image:linear-gradient(to bottom,rgba(199,240,255,1),rgba(255,255,255,.15));
+}
+.ct_sex .we_cur{
+	background-image:linear-gradient(to bottom,rgba(255,196,203,1),rgba(255,255,255,.15));
+}
+.ma_cur a{
+    color: #0193c8;
+}
+.we_cur a{
+    color: #e4122c;
+}
+.ct_wrap{
+	background-color:#FFF;
+}
+.ct_main{
+	width:100%;
+	margin:auto;
+	text-align:center;
+	margin-top:-5px;
+	padding-bottom:10px;
+}
+.ct_main ul li{
+	margin-top:10px;
+}
+.tit{
+	display:block;
+	width:85%;
+	margin:auto;
+	margin-top:5px;
+	border-radius:0.8rem;
+	background-color:#bcb3b3;
+	color:#FFF;
+}
+.ma_img,.we_img{
+	display:block;
+	width:85%;
+	margin:auto;
+	border-radius:0.6rem;
+}
+.ma_img{
+    background-color:#1673c9;
+}
+.we_img{
+    background-color:#f93e42;
+}
+.sx_01,.sx_02,.sx_03,.sx_04,.sx_05,.sx_06,.sx_07,.sx_08,.sx_09,.sx_010,.sx_011,.sx_012{
+	width:100%;
+	display:block;
+	padding-bottom:100%;
+    background-size:100%;
+}
+.sx_01{
+    background-image:url(./imgs/sx_0.png);
+}
+.sx_02{
+    background-image:url(./imgs/sx_1.png);
+}
+.sx_03{
+    background-image:url(./imgs/sx_2.png);
+}
+.sx_04{
+    background-image:url(./imgs/sx_3.png);
+}
+.sx_05{
+    background-image:url(./imgs/sx_4.png);
+}
+.sx_06{
+    background-image:url(./imgs/sx_5.png);
+}
+.sx_07{
+    background-image:url(./imgs/sx_6.png);
+}
+.sx_08{
+    background-image:url(./imgs/sx_7.png);
+}
+.sx_09{
+    background-image:url(./imgs/sx_8.png);
+}
+.sx_010{
+    background-image:url(./imgs/sx_9.png);
+}
+.sx_011{
+    background-image:url(./imgs/sx_10.png);
+}
+.sx_012{
+    background-image:url(./imgs/sx_11.png);
+}
+.ct_ft{
+	width:100%;
+	text-align:center;
+}
+.ct_ft ul li{
+	color:#0894ec;
+}
+.ct_ft02{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+/*侧栏*/
+.side-mask:after{
+	font-family:'kui-icon';
+	content:'\e80a点击关闭侧栏';
+	position:fixed;
+	top:30%;
+	padding:1rem;
+	display:block; 
+	font-size:1.3rem;
+	color:rgba(255,255,255,.7);
+	width:1.4rem;
+	line-height:1.4rem;
+	text-align:center; 
+	text-shadow:1px 0 3px 
+	rgba(0,0,0,.3)
+}
+.open-side-right .side-mask:after{
+	right:10rem;
+}
+.ma_clmain{
+	background-image:linear-gradient(to bottom,rgba(215,245,255,1),rgba(118,217,252,1));
+}
+.we_clmain{
+	background-image:linear-gradient(to bottom,rgba(255,227,230,1),rgba(252,167,178,1));
+}
+.ma_clhead,.we_clhead{
+	line-height:2.2rem;
+	text-align:center;
+	color:#FFF;
+}
+.ma_clhead{
+	background-color:#1673c9;
+}
+.we_clhead{
+	background-color:#f93e42;
+}
+.cl_ct{
+	width:100%;
+	text-align:center;
+	line-height:35px;
+}
+.ma_img02,.we_img02{
+	display:block;
+	width:85%;
+	margin:auto;
+	border-radius:0.6rem;
+}
+.ma_img02{
+    background-color:#1673c9;
+}
+.we_img02{
+    background-color:#f93e42;
+}
+.tit_02{
+	display:block;
+	width:85%;
+	margin:auto;
+	margin-top:5px;
+	border-radius:0.8rem;
+	background-color:#bcb3b3;
+	color:#FFF;
+	font-size:12px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KUI - 移动UI界的小钢炮 KevinUI</title>
+  <meta name="description" content="demo">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="docsify/themes/vue.css">
+  <style>
+  	.markdown-section{margin-left:30px;}
+	footer{margin:150px 0 50px 0;}
+	
+	.phone{position:fixed;top:60px;left:1160px; border-radius:30px;background:#EEE;padding:20px 10px 30px 10px;display:none;}
+	.phone iframe{width:321px;height:569px;border:#CCC solid 2px;}
+	
+	.no-badge{position:fixed;top:0;}
+  </style>
+</head>
+<body>
+  <div id="app">
+  	<nav>
+		<a href="/">首页</a>
+		<a href="#/">封面</a>
+		<a href="#/base/">基础样式</a>
+		<a href="#/components/">UI组件</a>
+		<a href="#/plus/">JS插件</a>
+	</nav>
+  </div>
+  <div class="phone"><iframe src="" name="phone" frameborder="0"></iframe></div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+window.$docsify = {
+  plugins: [
+    function (hook) {
+      var footer = [
+        '<footer>',
+		'<hr/>',
+        '<span><a href="http://www.kevinui.com/">KevinUI</a> &copy;2017.</span>',
+        '<span>Proudly published with <a href="https://github.com/QingWei-Li/docsify" target="_blank">KevinUI</a>.</span>',
+        '</footer>'
+      ].join('')
+
+      hook.afterEach(function (html) {
+        return html + footer
+      })
+    }
+  ]
+}
+</script>
+<script
+	src="docsify/docsify.min.js"
+	data-coverpage
+	data-repo=""
+	data-name="目录">
+</script>
+<script>
+//demo
+var hash=window.location.hash,path='';
+window.onhashchange=function(){
+	hash=window.location.hash;
+	if(hash.match(/base|components|plus/g)){
+		$('.phone').show();
+	}else{
+		$('.phone').hide();
+	}
+}
+
+$(window).on('scroll',function(){
+	var top=$(window).scrollTop();
+	
+	var $act=$('.sidebar-nav .active')
+	if($act.parent().hasClass('children')){
+		$act=$act.parents('li').prev();
+	}
+	var filename=(($act.text().match(/\(\w+\)/)||[])[0])||'index',path='../demo/';
+	var file=path+(filename.replace(/\(|\)/g,''))+'.html';
+	if($('[name="phone"]').attr('src')!=file){
+		$('[name="phone"]').attr({src:file});
+		if(hash.match(/base|components|plus/g)){
+			$('.phone').show();
+		}
+	}
+})
+
+</script>
+</html>
